@@ -4,45 +4,34 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, ZoomIn, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    category: "Web Development",
+    title: "Jogkar Shoe Store",
     description:
-      "A full-featured e-commerce solution with AI-powered product recommendations and chatbot support.",
+      "Modern e-commerce platform for footwear with smart recommendations and seamless checkout flow.",
     image: "/jogkar.png",
-    tags: ["Next.js", "AI", "Stripe"],
   },
   {
-    title: "Healthcare Dashboard",
-    category: "Dashboard",
+    title: "Fabrico T-shirt Store",
     description:
-      "Real-time patient monitoring dashboard with predictive analytics and automated alerts.",
-    image:
-      "/fabrico.png",
-    tags: ["React", "Analytics", "Real-time"],
+      "Clean and scalable apparel store focused on sustainability, user experience, and smooth shopping journey.",
+    image: "/fabrico.png",
   },
   {
-    title: "WhatsApp Automation",
-    category: "AI Automation",
+    title: "CEMS-Warehouse Management System",
     description:
-      "Intelligent WhatsApp bot handling 10,000+ customer inquiries daily with 95% resolution rate.",
-    image:
-      "/cemsfull.png",
-    tags: ["AI", "WhatsApp", "NLP"],
+      "Role-based warehouse system where admins oversee operations, bookers create orders, and suppliers manage fulfillment.",
+    image: "/cemsfull.png",
   },
   {
-    title: "SaaS Landing Page",
-    category: "Web Development",
+    title: "Job Portal",
     description:
-      "High-converting landing page with animated components and optimized performance.",
-    image:
-      "/portal.png",
-    tags: ["Design", "Animation", "SEO"],
+      "Feature-rich job platform with advanced search, streamlined applications, and efficient tracking system.",
+    image: "/portal.png",
   },
 ];
-
 export function PortfolioSection() {
   const [selectedImage, setSelectedImage] = useState<{
     src: string;
@@ -98,63 +87,56 @@ export function PortfolioSection() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-/>
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
 
                   {/* Hover Overlay with action buttons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {/* Zoom icon — top-right corner */}
-                    <button
+                    <Link
+                      href={"#"}
                       onClick={() =>
-                        setSelectedImage({ src: project.image, title: project.title })
+                        setSelectedImage({
+                          src: project.image,
+                          title: project.title,
+                        })
                       }
-                      className="absolute top-3 right-3 p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-primary hover:scale-110 transition-all duration-200"
+                      className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-primary hover:scale-110 transition-all duration-200"
                       title="View full image"
                     >
                       <ZoomIn className="h-4 w-4" />
-                    </button>
+                    </Link>
 
                     {/* Center action buttons */}
-                    <Button
-                      size="icon"
-                      variant="secondary"
-                      className="rounded-full"
-                      onClick={(e) => e.stopPropagation()}
+                    <Link
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-primary hover:scale-110 transition-all duration-200"
+                      title="View Live Demo"
                     >
                       <ExternalLink className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      size="icon"
-                      variant="secondary"
-                      className="rounded-full"
-                      onClick={(e) => e.stopPropagation()}
+                    </Link>
+                    <Link
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-primary hover:scale-110 transition-all duration-200"
+                      title="View on GitHub"
                     >
                       <Github className="h-4 w-4" />
-                    </Button>
+                    </Link>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                    {project.category}
-                  </span>
                   <h3 className="text-xl font-bold mt-2 mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4 text-pretty">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
             </motion.div>
