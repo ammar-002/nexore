@@ -2,66 +2,94 @@
 
 import { motion } from "framer-motion";
 import { Github, Twitter, Linkedin, Instagram, Facebook } from "lucide-react";
-import { useTheme } from "./theme-provider";
-const socialLinks = [
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "https://www.linkedin.com/company/nexoredev/", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  {icon: Facebook, href: "#", label: "Facebook" },
-];
+import { useTheme } from "@/components/theme-provider";
 
-const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+const footerLinks = {
+  services: [
+    { name: "AI Chatbots", href: "#services" },
+    { name: "Workflow Automation", href: "#services" },
+    { name: "Web Development", href: "#services" },
+    { name: "Custom Dashboards", href: "#services" },
+  ],
+  company: [
+    { name: "About Us", href: "#" },
+    { name: "Careers", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Contact", href: "#contact" },
+  ],
+  resources: [
+    { name: "Documentation", href: "#" },
+    { name: "Case Studies", href: "#portfolio" },
+    { name: "FAQs", href: "#" },
+    { name: "Support", href: "#" },
+  ],
+  legal: [
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
+    { name: "Cookie Policy", href: "#" },
+  ],
+};
+
+const socialLinks = [
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/nexoredev/",
+    label: "LinkedIn",
+  },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/profile.php?id=61588689450931",
+    label: "Facebook",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/nexoredev/",
+    label: "Instagram",
+  },
+  // { icon: , href: "#", label: "WhatsApp" },
 ];
 
 export function Footer() {
   const { theme, toggleTheme } = useTheme();
+
   return (
     <footer className="bg-card/30 border-t border-border/50">
-      <div className="container mx-auto px-4 lg:px-8 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-          {/* Left — Logo + Description */}
-          <div className="flex flex-col gap-4">
-            <motion.img
-              key={theme}
-              src="/logo.png"
-              alt="Logo"
-              // light up the logo if theme is light
-              className={
-  theme === "light"
-    ? "h-25 w-35 bg-transparent brightness-55"
-    : "h-25 w-35"
-}
-            ></motion.img>
-
-            <p className="text-muted-foreground text-sm max-w-xs -mt-7">
-              Empowering businesses with AI automation and modern web solutions.
+      <div className="container mx-auto px-4 lg:px-8 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 lg:gap-12">
+          {/* Brand */}
+          <div className="col-span-2">
+            <motion.a
+              href="#"
+              className="flex items-center gap-1 mb-0"
+              whileHover={{ scale: 1.02 }}
+            >
+              {/* <div className="relative h-8 w-8">
+                <div className="absolute inset-0 rounded-lg bg-primary" />
+                <div className="absolute inset-1 rounded-md bg-background flex items-center justify-center">
+                  <span className="text-sm font-bold text-primary">N</span>
+                </div>
+              </div> */}
+              {/* <span className="text-xl font-bold">Nexora</span> */}
+              <motion.img
+                key={theme}
+                src="/logo.png"
+                alt="Logo"
+                // light up the logo if theme is light
+                className={
+                  theme === "light"
+                    ? "h-22 w-auto bg-transparent brightness-55"
+                    : "h-22 w-auto"
+                }
+              ></motion.img>{" "}
+            </motion.a>
+            <p className="text-muted-foreground text-sm mb-6 max-w-xs text-pretty ml-3">
+              Empowering businesses with AI automation and modern web solutions
+              to scale faster and operate smarter.
             </p>
-          </div>
-
-          {/* Center — Nav Links */}
-          <div className="flex flex-col items-center gap-3 mt-3">
-            <p className="text-sm font-medium mb-1">Quick Links</p>
-            {navLinks.map((link) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                {link.label}
-              </motion.a>
-            ))}
-          </div>
-
-          {/* Right — Social Icons */}
-          <div className="flex flex-col items-end gap-4">
-            <p className="text-sm font-medium">Follow Us</p>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <motion.a
+                  target="_blank"
                   key={social.label}
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
@@ -74,12 +102,80 @@ export function Footer() {
               ))}
             </div>
           </div>
+
+          {/* Links */}
+          <div>
+            <h4 className="font-semibold mb-4">Services</h4>
+            <ul className="space-y-3">
+              {footerLinks.services.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4">Company</h4>
+            <ul className="space-y-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4">Resources</h4>
+            <ul className="space-y-3">
+              {footerLinks.resources.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4">Legal</h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom */}
-        <div className="mt-8 pt-6 border-t border-border/50 flex flex-col md:flex-row items-center justify-center gap-2">
+        <div className="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Nexore. All rights reserved.
+            &copy; {new Date().getFullYear()} Nexora. All rights reserved.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Crafted with precision for the future of business.
           </p>
         </div>
       </div>

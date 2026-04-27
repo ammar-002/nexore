@@ -98,8 +98,8 @@ export function PortfolioSection() {
                   {/* Hover Overlay with action buttons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0.5 group-hover:opacity-100 transition-opacity duration-300">
                     {/* Zoom icon — top-right corner */}
-                    <Link
-                      href={"#"}
+                    <button
+                      type="button"
                       onClick={() =>
                         setSelectedImage({
                           src: project.image,
@@ -110,18 +110,18 @@ export function PortfolioSection() {
                       title="View full image"
                     >
                       <ZoomIn className="h-4 w-4" />
-                    </Link>
+                    </button>
 
                     {/* Center action buttons */}
-                    <Link
-                      href="#"
+                    <a
+                      href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-primary hover:scale-110 transition-all duration-200"
                       title="View Live Demo"
                     >
                       <ExternalLink className="h-4 w-4" />
-                    </Link>
+                    </a>
                   </div>
                 </div>
 
