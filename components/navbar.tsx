@@ -39,7 +39,7 @@ export function Navbar() {
             ? "bg-background border-b border-border/50"
             : isScrolled
               ? "glass border-b border-border/50"
-              : "bg-transparent"
+              : "bg-background/60 backdrop-blur-sm lg:bg-transparent"
         }`}
       >
         <nav className="container mx-auto px-4 lg:px-8">
