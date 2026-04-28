@@ -27,7 +27,7 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Call Us",
-    value: "+92 327 3614062",
+    value: "+92 328 2209704",
     href: "tel:+923273614062",
   },
   {

@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Lightbulb, Rocket, RefreshCw, TrendingUp } from "lucide-react"
+import { motion } from "framer-motion";
+import { Lightbulb, Rocket, RefreshCw, TrendingUp } from "lucide-react";
 
 const phases = [
   {
@@ -32,7 +32,7 @@ const phases = [
     description:
       "We scale what works, cut what doesn't — evolving the product as your business does.",
   },
-]
+];
 
 const proof = [
   {
@@ -50,13 +50,12 @@ const proof = [
     value: "Zero",
     sub: "Full visibility into what's built, what's next, and why.",
   },
-]
+];
 
 export function HowItWorksSection() {
   return (
     <section id="how-it-works" className="py-24 lg:py-32 relative bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,13 +68,12 @@ export function HowItWorksSection() {
             Our Process
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-            You See Progress.{" "}
-            <span className="gradient-text">Every Week.</span>
+            You See Progress. <span className="gradient-text">Every Week.</span>
           </h2>
           <p className="text-muted-foreground text-lg text-pretty">
-            No black-box development. No months of waiting. We work in short focused
-            cycles — so you stay in control, give feedback as we go, and always know
-            what's being built next.
+            No black-box development. No months of waiting. We work in short
+            focused cycles — so you stay in control, give feedback as we go, and
+            always know what's being built next.
           </p>
         </motion.div>
 
@@ -94,7 +92,10 @@ export function HowItWorksSection() {
                 className="relative"
               >
                 <div className="flex flex-col items-center text-center">
-                  <motion.div whileHover={{ scale: 1.1 }} className="relative z-10 mb-5">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="relative z-10 mb-5"
+                  >
                     <div className="w-16 h-16 rounded-full bg-background border-2 border-primary/30 flex items-center justify-center glow">
                       <phase.icon className="h-6 w-6 text-primary" />
                     </div>
@@ -120,8 +121,9 @@ export function HowItWorksSection() {
             className="flex items-center gap-4 mb-12"
           >
             <div className="flex-1 h-px bg-border" />
-            <span className="text-sm text-muted-foreground border border-dashed border-primary/20 rounded-full px-5 py-1.5 whitespace-nowrap">
-              ↻ &nbsp;Each cycle feeds the next — your product gets sharper every sprint
+            <span className="text-sm text-muted-foreground border border-dashed border-primary/20 rounded-full px-3 py-1.5 sm:px-5 whitespace-normal sm:whitespace-nowrap text-center block sm:inline">
+              ↻ &nbsp;Each cycle feeds the next — your product gets sharper
+              every sprint
             </span>
             <div className="flex-1 h-px bg-border" />
           </motion.div>
@@ -146,8 +148,7 @@ export function HowItWorksSection() {
             ))}
           </div>
         </div>
-
       </div>
     </section>
-  )
+  );
 }

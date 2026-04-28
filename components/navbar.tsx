@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Moon, Sun } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTheme } from "@/components/theme-provider"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/theme-provider";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -13,20 +13,20 @@ const navLinks = [
   { name: "Testimonials", href: "#testimonials" },
   // { name: "Pricing", href: "#pricing" },
   { name: "Contact", href: "#contact" },
-]
+];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { theme, toggleTheme } = useTheme()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -35,21 +35,23 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "glass border-b border-border/50"
-            : "bg-transparent"
+          isScrolled ? "glass border-b border-border/50" : "bg-transparent"
         }`}
       >
         <nav className="container mx-auto px-4 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-             <motion.img
-             key={theme}
+            <motion.img
+              key={theme}
               src="/logo.png"
               alt="Logo"
-              // light up the logo if theme is light 
-              className= {theme === "light" ? "h-32 w-auto mt-2 bg-transparent brightness-55" : "h-32 w-auto mt-2"} >
-             </motion.img>
+              // light up the logo if theme is light
+              className={
+                theme === "light"
+                  ? "h-32 w-auto mt-2 bg-transparent brightness-85"
+                  : "h-32 w-auto mt-2"
+              }
+            ></motion.img>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
@@ -93,9 +95,7 @@ export function Navbar() {
               {/* <Button variant="ghost" className="text-sm">
                 Log In
               </Button> */}
-              <Button className="text-sm">
-                Get Started
-              </Button>
+              <Button className="text-sm">Get Started</Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -157,9 +157,7 @@ export function Navbar() {
                   <Button variant="ghost" className="justify-start">
                     Log In
                   </Button>
-                  <Button className="justify-start">
-                    Get Started
-                  </Button>
+                  <Button className="justify-start">Get Started</Button>
                 </div>
               </div>
             </div>
@@ -167,5 +165,5 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
