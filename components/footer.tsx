@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Twitter, Linkedin, Instagram, Facebook } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
+import WhatsappBusinessIcon from "./ui/whatsapp-icon";
 
 const footerLinks = {
   services: [
@@ -46,6 +47,11 @@ const socialLinks = [
     href: "https://www.instagram.com/nexoredev/",
     label: "Instagram",
   },
+  {
+    icon: WhatsappBusinessIcon,
+    href: "https://www.instagram.com/nexoredev/",
+    label: "WhatsApp",
+  },
   // { icon: , href: "#", label: "WhatsApp" },
 ];
 
@@ -74,13 +80,9 @@ export function Footer() {
                 key={theme}
                 src="/logo.png"
                 alt="Logo"
-                // light up the logo if theme is light
-                className={
-                  theme === "light"
-                    ? "h-22 w-auto bg-transparent brightness-55"
-                    : "h-22 w-auto"
-                }
-              ></motion.img>{" "}
+                style={theme === "light" ? { filter: "brightness(0.85)" } : {}}
+                className="h-24 w-auto"
+              />
             </motion.a>
             <p className="text-muted-foreground text-sm mb-6 max-w-xs text-pretty ml-3">
               Empowering businesses with AI automation and modern web solutions

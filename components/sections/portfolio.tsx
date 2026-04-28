@@ -96,7 +96,9 @@ export function PortfolioSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/22 via-background/10 to-transparent" />
 
                   {/* Hover Overlay with action buttons */}
-                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0.5 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Hover Overlay with action buttons */}
+                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                    {" "}
                     {/* Zoom icon — top-right corner */}
                     <button
                       type="button"
@@ -111,7 +113,6 @@ export function PortfolioSection() {
                     >
                       <ZoomIn className="h-4 w-4" />
                     </button>
-
                     {/* Center action buttons */}
                     <a
                       href={project.url}
