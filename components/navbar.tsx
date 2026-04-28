@@ -35,7 +35,11 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "glass border-b border-border/50" : "bg-transparent"
+          isMobileMenuOpen
+            ? "bg-background border-b border-border/50"
+            : isScrolled
+              ? "glass border-b border-border/50"
+              : "bg-transparent"
         }`}
       >
         <nav className="container mx-auto px-4 lg:px-8">
@@ -136,7 +140,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 glass border-b border-border/50 lg:hidden"
+            className="fixed inset-x-0 top-16 z-40 bg-background border-b border-border/50 lg:hidden"
           >
             <div className="container mx-auto px-4 py-6">
               <div className="flex flex-col gap-4">
@@ -154,9 +158,6 @@ export function Navbar() {
                   </motion.a>
                 ))}
                 <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                  <Button variant="ghost" className="justify-start">
-                    Log In
-                  </Button>
                   <Button className="justify-start">Get Started</Button>
                 </div>
               </div>

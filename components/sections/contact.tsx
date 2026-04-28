@@ -19,12 +19,6 @@ import emailjs from "@emailjs/browser";
 
 const contactInfo = [
   {
-    icon: Mail,
-    label: "Email Us",
-    value: "nexoredev@gmail.com",
-    href: "mailto:nexoredev@gmail.com",
-  },
-  {
     icon: Phone,
     label: "Call Us",
     value: "+92 328 2209704",
@@ -35,6 +29,12 @@ const contactInfo = [
     label: "WhatsApp",
     value: "Chat with us",
     href: "https://wa.me/923273614062",
+  },
+  {
+    icon: Mail,
+    label: "Email Us",
+    value: "nexoredev@gmail.com",
+    href: "mailto:nexoredev@gmail.com",
   },
 ];
 
@@ -225,7 +225,7 @@ export function ContactSection() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid xl:grid-cols-2 gap-4">
               {contactInfo.map((item, index) => (
                 <motion.a
                   key={item.label}
@@ -238,7 +238,7 @@ export function ContactSection() {
                   className="group"
                 >
                   <Card className="bg-card/50 border-border/50 hover:border-primary/30 transition-all duration-300">
-                    <CardContent className="p-6 flex items-start gap-4">
+                    <CardContent className="px-6 flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                         <item.icon className="h-5 w-5 text-primary" />
                       </div>
