@@ -34,19 +34,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/icon-light-32x32.webp",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon.png",
+        url: "/icon.webp",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.png",
+        url: "/icon.webp",
         type: "image/svg+xml",
       },
     ],
-    apple: "/icon.png",
+    apple: "/icon.webp",
   },
 };
 

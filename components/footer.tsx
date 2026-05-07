@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Github, Twitter, Linkedin, Instagram, Facebook } from "lucide-react";
 import { useTheme } from "next-themes";
 import WhatsappBusinessIcon from "./ui/whatsapp-icon";
+import Image from "next/image";
 
 const footerLinks = {
   services: [
@@ -57,6 +58,7 @@ const socialLinks = [
 
 export function Footer() {
   const { theme, setTheme } = useTheme();
+  const MotionImage = motion(Image);
 
   return (
     <footer className="bg-card/30 border-t border-border/50">
@@ -76,10 +78,15 @@ export function Footer() {
                 </div>
               </div> */}
               {/* <span className="text-xl font-bold">Nexora</span> */}
-              <motion.img
+              <MotionImage
                 key={theme}
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Logo"
+                width={128}
+                height={128}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.25 }}
                 style={theme === "light" ? { filter: "brightness(0.85)" } : {}}
                 className="h-24 w-auto"
               />

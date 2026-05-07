@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -27,6 +28,7 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const MotionImage = motion(Image);
 
   return (
     <>
@@ -45,17 +47,21 @@ export function Navbar() {
         <nav className="container mx-auto px-4 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <motion.img
+            <MotionImage
               key={theme}
-              src="/logo.png"
+              src="/logo.webp"
               alt="Logo"
-              // light up the logo if theme is light
+              width={128}
+              height={128}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className={
                 theme === "light"
-                  ? "h-32 w-auto mt-2 bg-transparent brightness-85"
+                  ? "h-32 w-auto mt-2 bg-transparent brightness-90"
                   : "h-32 w-auto mt-2"
               }
-            ></motion.img>
+            />
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
